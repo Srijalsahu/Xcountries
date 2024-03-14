@@ -26,12 +26,14 @@ const CountryList = () => {
     <div className="country-list">
       {countries.map((country) => (
         <div key={country.cca2} className="country-item">
+          {/* Displaying country flag with appropriate alt text */}
           <img
             src={country.flags.svg}
             alt={`Flag of ${country.name.common}`}
             width="50"
             height="30"
           />
+          {/* Displaying country name */}
           <span>{country.name.common}</span>
         </div>
       ))}
