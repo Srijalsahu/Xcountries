@@ -1,4 +1,4 @@
-/* src/components/CountryList/CountryList.module.css */
+/* src/components/CountryList/countryList.module.css */
 .countryList {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -18,5 +18,5 @@
 .countryItem img {
   width: 100%;
   height: auto;
-  border-radius: 5px 5px 0 0; /* Optional: To round the top corners of the image */
+  border-radius: 5px 5px 0 0;
 }

@@ -7,22 +7,21 @@ const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    const fetchDataFromApi = async () => {
+    const fetchCountries = async () => {
       try {
-        const response = await fetchData();
-        const first28Countries = response.slice(0, 28);
-        setCountries(first28Countries);
+        const data = await fetchData();
+        setCountries(data);
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
     };
 
-    fetchDataFromApi();
+    fetchCountries();
   }, []);
 
   return (
     <div className={styles.countryList}>
-      {countries.map((country) => (
+      {countries.map(country => (
         <div key={country.cca2} className={styles.countryItem}>
           <img
             src={country.flags.svg}
