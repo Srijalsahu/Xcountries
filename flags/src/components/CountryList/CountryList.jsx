@@ -1,39 +1,35 @@
+// src/components/CountryList/CountryList.jsx
 import React, { useState, useEffect } from 'react';
+import styles from './CountryList.module.css';
+import { fetchData } from '../../api/api';
 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataFromApi = async () => {
       try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        // Take only the first 28 countries
-        const first28Countries = data.slice(0, 28);
+        const response = await fetchData();
+        const first28Countries = response.slice(0, 28);
         setCountries(first28Countries);
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
     };
 
-    fetchData();
+    fetchDataFromApi();
   }, []);
 
   return (
-    <div className="country-list">
+    <div className={styles.countryList}>
       {countries.map((country) => (
-        <div key={country.cca2} className="country-item">
-          {/* Displaying country flag with appropriate alt text */}
+        <div key={country.cca2} className={styles.countryItem}>
           <img
             src={country.flags.svg}
             alt={`Flag of ${country.name.common}`}
             width="50"
             height="30"
           />
-          {/* Displaying country name */}
           <span>{country.name.common}</span>
         </div>
       ))}

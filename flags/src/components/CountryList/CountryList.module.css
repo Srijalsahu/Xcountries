@@ -1,0 +1,22 @@
+/* src/components/CountryList/CountryList.module.css */
+.countryList {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.countryItem {
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.countryItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0; /* Optional: To round the top corners of the image */
+}

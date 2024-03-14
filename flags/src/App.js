@@ -1,13 +1,13 @@
+// src/App.js
 import React from 'react';
-import './App.css';
-import CountryList from './countryList';
+import CountryList from './components/CountryList/CountryList';
 
-const App = () => {
+function App() {
   return (
-    <div>
-       <CountryList/>
+    <div className="app-container">
+      <CountryList />
     </div>
   );
-};
+}
 
 export default App;
